@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,15 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\HealthCheck.proto" />
     <None Remove="Protos\order.proto" />
   </ItemGroup>
 
   <ItemGroup>
+    <Protobuf Include="Protos\HealthCheck.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\order.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Consul" Version="1.6.10.4" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
   </ItemGroup>
 
